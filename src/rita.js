@@ -118,7 +118,9 @@ var RiTa = {
 
         if (arr[i]) {
 
-          if (!RiTa.isPunctuation(arr[i]))
+          if ( i != arr.length -1 && arr[i].match(/[,\\.\\;\\:\\?\\!\\)\"“”’‘`']+/g) && arr[i-1].match(/[,\\.\\;\\:\\?\\!\\)\"“”’‘`']+/g) )
+            newStr += delim;
+          else if ( !arr[i].match(/[,\\.\\;\\:\\?\\!\\)\"“”’‘`']/g) && !arr[i-1].match(/[\\(\"“”’‘`']+/g) )
             newStr += delim;
 
           newStr += arr[i];
